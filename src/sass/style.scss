@@ -641,8 +641,8 @@ main {
         margin-right: 7%;
         text-align: $ta;
         }
-    }
-    
+}
+// ******************* QUOTES *****************
 .quotes {
     position: relative;
     width: auto;
@@ -728,12 +728,18 @@ blockquote {
 .doitby-yourself {
     width: $w100;
     position: relative;
+    margin-top: 95px;
     padding-bottom: 50px;
     h3 {
-        display: inline-block;
+        display: block;
+        width: 300px;
+        height: 30px;
+        margin: auto auto -15px;
+        padding-left: 80px;
         $ff-montblack:$fw-b;
         font-size: (26 / 16) + rem;
         text-align: $ta;
+        text-transform: $ttr-up;
     }
 
     &__img-b2 div:nth-of-type(odd) {
