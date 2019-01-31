@@ -361,11 +361,7 @@ main {
     & .device {
         width: $w100;
         height: 700px;
-        // position: absolute;
-        // z-index: 100;
-        // perspective: 500px;
         background: {
-            // image: url(../img/Device-non-screen.png);
             size: contain;
             repeat: no-repeat;
         }
@@ -388,7 +384,7 @@ main {
     width: 240px;
     height: 82.2%;
     background-color: transparent;
-    transform: translate(64%, 39.9%) rotateX(3deg) rotateY(0deg) rotate(-37deg) skew(12deg);
+    transform: translate(110%, 39.9%) rotateX(3deg) rotateY(0deg) rotate(-37deg) skew(12deg);
     transform-origin: 0% 0% 0;
     & div {
         // width: 100%;
@@ -587,6 +583,10 @@ main {
 
 .button {
     @include buttons();
+    &:hover {
+        background-color: #0ff;
+        transition: all ease-out .5s;
+    }
 }
 
 .platform-features {
@@ -724,86 +724,100 @@ blockquote {
         color: $black;
     }
 }
-
+// BLOCK IMAGES >>>START
 .doitby-yourself {
     width: $w100;
+    position: relative;
+    padding-bottom: 50px;
     h3 {
         display: inline-block;
         $ff-montblack:$fw-b;
         font-size: (26 / 16) + rem;
         text-align: $ta;
     }
-    #doitby-yoursalf__img-b {
-        width: auto;
-        max-height: 1200px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        // width: 1100px;
-       }
 
-       &__img-b1 {
-           align-self: flex-end;
-       }
-       &__img-b2 div:nth-of-type(n) {
-            // max-width: 1122px;
-            // max-height: 1200px;
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            // flex-direction: column;
-        }
-        &__img-b3 {
-            align-self: baseline;
-        }
+    &__img-b2 div:nth-of-type(odd) {
+        display: flex;
+    }
 }
 
 .img-computer-table {
-    width: 209px;
+    width: 13.3%;
+    // width: 209px;
     height: 425px;
-    // float: left;
+    flex-basis: 209px;
+    transform: translateY(560px);
     @include bg-img('../img/photo2.png', 100%, no-repeat);
 }
 
 .img-human {
     width: 305px;
     height: 425px;
-    margin-bottom: 100px;
+    margin-bottom: 85px;
+    margin-right: 7.8%;
+    margin-left: 4%;
     @include bg-img("../img/photo7.png", 100%, no-repeat);
 }
 
 .img-mountan {
     width: 632px;
     height: 420px;
-    @include bg-img("../img/photo3.png", 100%, no-repeat);
+    margin-top: 45px;
+    margin-right: 270px;
+    -webkit-background-blend-mode: multiply;
+    background-blend-mode: multiply;
+    @include bg-img("../img/photo3.png", cover, no-repeat);
+    background-color: rgba(0,0,0,.702);
+    transition: background 1s ease-out;
+        &:hover {
+            background-color: transparent;
+            transition: all 1s ease-out; 
+        }
+        button {
+            @include  buttons($bg-color: $bgc-turquoise, $color: $black, $line-h:42px);
+            width: 112px;
+            height: 42px;
+            margin: auto;
+            border: none;
+            border-radius: $br-r;
+        }
 }
 
 .img-snow-mountan {
-    width: 960px;
+    width: 60.2%;
+    // width: 960px;
     height: 200px;
-    // margin: auto;
+    margin: auto;
     @include bg-img("../img/photo1.png", 100%, no-repeat);
 }
 
 .img-fog-mountan {
     width: 470px;
     height: 424px;
+    margin-right: 5.2%;
+    margin-left: 18.2%;
+    margin-top: 55px;
     @include bg-img("../img/photo4.png", 100%, no-repeat);
 }
 
 .img-room {
     width: 470px;
     height: 455px;
-    margin-top: 70px;
+    margin-top: 60px;
+    margin-left: 5.2%;
+    margin-right: 3.3%;
     @include bg-img("../img/photo6.png", 100%, no-repeat);
 }
 
 .img-birds {
-    width: 178px;
+    width: 11.3%;
     height: 422px;
+    flex-basis: 178px;
+    margin-top: -420px;
     @include bg-img("../img/photo5.png", 100%, no-repeat);
 }
 
+// BLOCK IMAGES <<<END
 .join-over {
     text-align: $ta;
         & h2 {
@@ -909,21 +923,74 @@ footer {
 
 .footer-content-bg {
     max-width: 960px;
-    // max-width: (1600 / 26.6) + vw;
+    padding: 40px 50px 50px 45px;
+    @include flex-box($justify:space-between, $aitem:flex-start, $flex-dir:none);
     height: 282px;
     margin: 250px auto 0;
+    box-sizing: border-box;
     background-color: $black;
     border-radius: $br-r;
 }
 
-.social-nets {
-    width: 60%;
+.footer-logo {
+    width: 36px;
+    height: 36px;
+}
+
+.footer-menu {
+    width: 450px;
+    margin-left: (-98.55 / 960) * 100%;
+    @include flex-box($justify: space-between, $aitem: none, $flex-dir:none);
     &__item {
+        margin-bottom: 20px;
+        @include lists($display: auto, $txt-a: $ta-l, $line-h: auto, $list-s: $none);
+        @include link($clr: $white, $display: inline-block, $txt-decor:none, $fz: (12 / 16) + rem);
+    }
+}
+
+.info {
+    width: 180px;
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: #fff;
+    & span:nth-of-type(1) {
+        @include link($clr:rgba(255,255,255,0.4), $fz: (12 / 16) + rem);
+        text-align: $ta-r;
+        & a {
+            text-transform: none;
+        } 
+    }
+}
+
+.made-by {
+    & span:nth-of-type(1) {
+        display: flex;
+        justify-content: flex-end;
+        font-size: (11 / 16) + rem;
+        text-align: $ta-r;
+        text-transform: $ttr-up;
+        color: rgba($white, $alpha: .4);
+    }
+    & span:nth-of-type(2) {
         display: inline-block;
+        width: 100%;
+        height: 40px;
+        margin-bottom: 40px;
+       @include bg-img($url:"../img/logo_txt.png", $bgsize: contain, $repeat:no-repeat, $position: right center);
+    }
+}
+
+.social-nets {
+    display: flex;
+    justify-content: space-between;
+    @include link($clr:#333333, $fz: 1.5rem);
+    &__item {
+        @include lists($display:inline-block, $txt-a: $ta, $line-h: 30px, $list-s: $none);
         & a {
             font-family: "FontAwesome";
         }
-        @include link($clr:#333333, $fz: 1.5rem);
     }
     & :nth-child(1) a::before {
         content: '\f099';

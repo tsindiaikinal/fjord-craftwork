@@ -300,7 +300,7 @@ main {
   width: 240px;
   height: 82.2%;
   background-color: transparent;
-  transform: translate(64%, 39.9%) rotateX(3deg) rotateY(0deg) rotate(-37deg) skew(12deg);
+  transform: translate(110%, 39.9%) rotateX(3deg) rotateY(0deg) rotate(-37deg) skew(12deg);
   transform-origin: 0% 0% 0;
 }
 #iphone-slider div {
@@ -535,6 +535,10 @@ main {
   text-transform: uppercase;
   text-align: center;
 }
+.button:hover {
+  background-color: #0ff;
+  transition: all ease-out 0.5s;
+}
 
 .platform-features {
   max-width: 960px;
@@ -678,34 +682,23 @@ blockquote cite {
 
 .doitby-yourself {
   width: 100%;
+  position: relative;
+  padding-bottom: 50px;
 }
 .doitby-yourself h3 {
   display: inline-block;
   font-size: 1.625rem;
   text-align: center;
 }
-.doitby-yourself #doitby-yoursalf__img-b {
-  width: auto;
-  max-height: 1200px;
+.doitby-yourself__img-b2 div:nth-of-type(odd) {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.doitby-yourself__img-b1 {
-  align-self: flex-end;
-}
-.doitby-yourself__img-b2 div:nth-of-type(n) {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-.doitby-yourself__img-b3 {
-  align-self: baseline;
 }
 
 .img-computer-table {
-  width: 209px;
+  width: 13.3%;
   height: 425px;
+  flex-basis: 209px;
+  transform: translateY(560px);
   background-image: url("../img/photo2.png");
   background-size: 100%;
   background-repeat: no-repeat;
@@ -716,7 +709,9 @@ blockquote cite {
 .img-human {
   width: 305px;
   height: 425px;
-  margin-bottom: 100px;
+  margin-bottom: 85px;
+  margin-right: 7.8%;
+  margin-left: 4%;
   background-image: url("../img/photo7.png");
   background-size: 100%;
   background-repeat: no-repeat;
@@ -727,16 +722,46 @@ blockquote cite {
 .img-mountan {
   width: 632px;
   height: 420px;
+  margin-top: 45px;
+  margin-right: 270px;
+  -webkit-background-blend-mode: multiply;
+  background-blend-mode: multiply;
   background-image: url("../img/photo3.png");
-  background-size: 100%;
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
+  border-radius: 2px;
+  background-color: rgba(0, 0, 0, 0.702);
+  transition: background 1s ease-out;
+}
+.img-mountan:hover {
+  background-color: transparent;
+  transition: all 1s ease-out;
+}
+.img-mountan button {
+  display: inline-block;
+  width: 180px;
+  height: 50px;
+  line-height: 42px;
+  background-color: #26e6e6;
+  color: black;
+  border: none;
+  border-radius: 110px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  text-align: center;
+  width: 112px;
+  height: 42px;
+  margin: auto;
+  border: none;
   border-radius: 2px;
 }
 
 .img-snow-mountan {
-  width: 960px;
+  width: 60.2%;
   height: 200px;
+  margin: auto;
   background-image: url("../img/photo1.png");
   background-size: 100%;
   background-repeat: no-repeat;
@@ -747,6 +772,9 @@ blockquote cite {
 .img-fog-mountan {
   width: 470px;
   height: 424px;
+  margin-right: 5.2%;
+  margin-left: 18.2%;
+  margin-top: 55px;
   background-image: url("../img/photo4.png");
   background-size: 100%;
   background-repeat: no-repeat;
@@ -757,7 +785,9 @@ blockquote cite {
 .img-room {
   width: 470px;
   height: 455px;
-  margin-top: 70px;
+  margin-top: 60px;
+  margin-left: 5.2%;
+  margin-right: 3.3%;
   background-image: url("../img/photo6.png");
   background-size: 100%;
   background-repeat: no-repeat;
@@ -766,8 +796,10 @@ blockquote cite {
 }
 
 .img-birds {
-  width: 178px;
+  width: 11.3%;
   height: 422px;
+  flex-basis: 178px;
+  margin-top: -420px;
   background-image: url("../img/photo5.png");
   background-size: 100%;
   background-repeat: no-repeat;
@@ -895,27 +927,107 @@ footer h5 {
 
 .footer-content-bg {
   max-width: 960px;
+  padding: 40px 50px 50px 45px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-direction: none;
   height: 282px;
   margin: 250px auto 0;
+  box-sizing: border-box;
   background-color: black;
   border-radius: 2px;
 }
 
-.social-nets {
-  width: 60%;
+.footer-logo {
+  width: 36px;
+  height: 36px;
 }
-.social-nets__item {
+
+.footer-menu {
+  width: 450px;
+  margin-left: -10.265625%;
+  display: flex;
+  justify-content: space-between;
+  align-items: none;
+  flex-direction: none;
+}
+.footer-menu__item {
+  margin-bottom: 20px;
+  display: auto;
+  text-align: left;
+  line-height: auto;
+  list-style: none;
+}
+.footer-menu__item a {
   display: inline-block;
+  font-size: 0.75rem;
+  color: white;
+  text-transform: uppercase;
+  text-decoration: none;
 }
-.social-nets__item a {
-  font-family: "FontAwesome";
+
+.info {
+  width: 180px;
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: #fff;
 }
-.social-nets__item a {
+.info span:nth-of-type(1) {
+  text-align: right;
+}
+.info span:nth-of-type(1) a {
+  display: inline-block;
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.4);
+  text-transform: uppercase;
+  text-decoration: none;
+}
+.info span:nth-of-type(1) a {
+  text-transform: none;
+}
+
+.made-by span:nth-of-type(1) {
+  display: flex;
+  justify-content: flex-end;
+  font-size: 0.6875rem;
+  text-align: right;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.4);
+}
+.made-by span:nth-of-type(2) {
+  display: inline-block;
+  width: 100%;
+  height: 40px;
+  margin-bottom: 40px;
+  background-image: url("../img/logo_txt.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: right center;
+  border-radius: 2px;
+}
+
+.social-nets {
+  display: flex;
+  justify-content: space-between;
+}
+.social-nets a {
   display: inline-block;
   font-size: 1.5rem;
   color: #333333;
   text-transform: uppercase;
   text-decoration: none;
+}
+.social-nets__item {
+  display: inline-block;
+  text-align: center;
+  line-height: 30px;
+  list-style: none;
+}
+.social-nets__item a {
+  font-family: "FontAwesome";
 }
 .social-nets :nth-child(1) a::before {
   content: "";
