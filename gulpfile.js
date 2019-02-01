@@ -35,7 +35,7 @@ function copyImg() {
 
 function copyFonts() {
     return src('src/fonts/*.*')
-        .pipe(dest('dist/tmp/fonts/'));
+        .pipe(dest('dist/fonts/'));
 }
 
 watcher.on('change', function (path, stats) {
@@ -85,6 +85,15 @@ function sassProg() {
         }))
         .pipe(dest('src/css'));
 }
+
+function autoprefix() {
+    return src("src/css/*.css")
+        .pipe(autoprefixer({
+            browsers: ['last 6 versions'],
+            cascade: false
+        }))
+        .pipe(dest('src/css'));
+}
     
 function scriptConcat() {
     return src("src/js/*.js") // директория откуда брать исходники
@@ -106,13 +115,14 @@ function cssomin() {
 // exports.watcherSass = watcherSass;
 // exports.sass = sass;
 exports.server = server;
-exports.smushitCompressImg = CompressImg;
+exports.CompressImg = CompressImg;
 exports.cssomin = cssomin;
 exports.htmlCopy = htmlCopy;
 exports.sassProg = sassProg;
+exports.autoprefix = autoprefix;
 exports.scriptConcat = scriptConcat;
 exports.imageMin = imageMin;
 exports.copySass = copySass;
 exports.copyFonts = copyFonts;
 exports.copyImg = copyImg;
-exports.default = series(htmlCopy, sassProg, scriptConcat, cssomin, copySass, copyImg, copyFonts);
+exports.default = series(htmlCopy, autoprefix, scriptConcat, cssomin, copyFonts);
