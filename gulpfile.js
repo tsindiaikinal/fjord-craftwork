@@ -4,12 +4,12 @@ const { watch } = require('gulp');
 const browserSync = require('browser-sync').create();
 const sass = require('gulp-sass'), // переводит SASS в CSS
 autoprefixer = require('gulp-autoprefixer'), // Проставлет вендорные префиксы в CSS для поддержки старых браузеров
-imagemin = require('gulp-imagemin'), // Сжатие изображение
-concat = require("gulp-concat"), // Объединение файлов - конкатенация
-uglify = require("gulp-uglify"), // Минимизация javascript
-rename = require("gulp-rename"), // Переименование файлов
-smushit = require('gulp-smushit'), // сжимание изображений
-csso = require('gulp-csso'); // Минимизация CSS
+const imagemin = require('gulp-imagemin'), // Сжатие изображение
+const concat = require("gulp-concat"), // Объединение файлов - конкатенация
+const uglify = require("gulp-uglify"), // Минимизация javascript
+const rename = require("gulp-rename"), // Переименование файлов
+const smushit = require('gulp-smushit'), // сжимание изображений
+const csso = require('gulp-csso'); // Минимизация CSS
 // const plumber = require('gulp-plumber');
 const notify = require("gulp-notify");
 
@@ -89,7 +89,7 @@ function sassProg() {
 function autoprefix() {
     return src("src/css/*.css")
         .pipe(autoprefixer({
-            browsers: ['last 6 versions'],
+            browsers: ['last 5 versions'],
             cascade: false
         }))
         .pipe(dest('src/css'));
